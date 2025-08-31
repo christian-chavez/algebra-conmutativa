@@ -1,23 +1,5 @@
 \documentclass[b5paper,10pt]{book}
-\usepackage[spanish]{babel}
-\usepackage{geometry}
-\usepackage{
-	xcolor,
-	amsmath,
-	amsthm,
-	amsfonts,
-	amssymb,
-	enumitem,
-}
-\geometry{margin=1in}
-
-\newcommand{\red}[1]{\textcolor{red}{#1}}
-
-\theoremstyle{definition}
-\newtheorem{thm}{Teorema}
-\newtheorem{defi}{Definición}
-\newtheorem{problema}{Problema}
-\newtheorem{ej}{Ejemplos}
+\input{preambulo.tex}
 
 \title{Notas de Álgebra Conmutativa}
 \author{Kevin Chávez\\ Université de Sherbrooke}
@@ -193,7 +175,38 @@ Sea \(M\) un \(A\)-módulo finitamente generado.
 Si \(M=mM\), entonces \(M=0\).
 \end{thm}
 
-\section{Teoría de módulos}
+\section{Anillos noetherianos}
+
+Ser noetheriano es una condición de finitud,
+en el sentido de que un anillo noetheriano
+es un anillo pequeño.
+Los anillos que nos interesan son aquellos 
+que son noetherianos.
+
+\begin{defi}
+Un anillo es noetheriano si todos sus ideales
+son finitamente generados.
+\end{defi}
+
+\begin{thm}
+Los siguientes enunciados son equivalentes.
+\begin{enumerate}[label=(\roman*)]
+\item \(I\) es noetheriano
+\item Toda secuencia ascendente de ideales 
+	\[
+	I_1\subset I_2\subset \cdots
+	\]
+	se estabiliza, es decir, a partir de algún 
+	\(n\in \Z^+\) la secuencia se vuelve constante:
+	\[
+	I_n = I_{n+1} = \cdots
+	\]
+\item Todo subconjunto no vacío de \(A\) tiene un elemento maximal.
+\end{enumerate}
+\end{thm}
+
+
+\chapter{Teoría de módulos}
 
 \begin{defi}
 Sea 
