@@ -1,0 +1,253 @@
+\documentclass[b5paper,10pt]{book}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{
+	xcolor,
+	amsmath,
+	amsthm,
+	amsfonts,
+	amssymb,
+	enumitem,
+}
+\geometry{margin=1in}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+\theoremstyle{definition}
+\newtheorem{thm}{Teorema}
+\newtheorem{defi}{Definición}
+\newtheorem{problema}{Problema}
+\newtheorem{ej}{Ejemplos}
+
+\title{Notas de Álgebra Conmutativa}
+\author{Kevin Chávez\\ Université de Sherbrooke}
+\date{Compilado: \today}
+
+\begin{document}
+\pagestyle{empty}
+\maketitle 
+\tableofcontents
+\pagestyle{plain}
+
+\chapter*{Prefacio}
+
+Estas notas las hago por que no he encontrado una referencia
+amigable y en español para estudiantes nuevos en la materia,
+y porque es un medio para estudiarla.
+No existen aportes originales, todo el material es estándar
+y mi única contribución, si es que cabe, es la organización 
+del material.
+Además, presento solución de todos los problemas propuestos 
+al final de cada sección.
+
+El libro de Atiyah y MacDonald es la referencia estándar.
+También sugiero bastante el libro de Assem y Coelho.
+
+\chapter{Básico de álgebra conmutativa}
+
+\section{Preliminares}
+
+\subsection{Intuición}
+
+Estudiamos teoría de módulos no por el hecho de estudiar la teoría en sí misma,
+sino que la usamos para entender a mayor profundidad la teoría de anillos.
+\red{poner la analogía con la teoría de grupos}
+De hecho, los módulos que deben captar nuestro mayor interés 
+son aquellos que están muy relacionados con el anillo de base,
+por ejemplo los ideales, los cocientes y las extensiones de anillos,
+demás de los módulos que podamos construir a partir de ellos, como las sumas o productos.
+
+Los módulos mejor comportados son los módulos libres
+y los módulos noetherianos.
+Practicamente todos los anillos usados en el álgebra conmutativa son
+noetherianos.
+
+\subsection{Convenciones}
+
+El símbolo \(\subset\) denota inclusión y no inclusión propia,
+así que lo usamos en lugar de \(\subseteq\).
+Cuando querramos indicar inclusión propia usaremos \(\subsetneq\).	
+Esta convención es uno de los buenos modales
+que comparten muchos autores de excelentes libros.
+
+\section{Anillos e ideales}
+
+
+
+\begin{defi}
+Un anillo es un grupo abeliano \((A,+)\) con una operación binaria
+\(\cdot : A\times A\to A\) tal que
+\[
+	(a,b)\mapsto a\cdot b
+\]
+que satisface los siguientes axiomas
+\end{defi}
+
+El hecho de que nos enfocaremos únicamente
+en anillos conmutativos le hace honor al nombre de 
+esta disciplina.
+
+Como es de costumbre, al decir 
+``A es un anillo'', 
+queremos decir que 
+\((A,+,\cdot)\) es un anillo
+para algunas operaciones de suma \(+\) y multiplicación \(\cdot\).
+
+Contrario a lo que uno podría pensar,
+las subestructuras de interés contenidas en \(A\)
+no son los subanillos sino sus ideales.
+
+\begin{defi}
+Sea \(A\) un anillo.
+Un ideal \(I\) en \(A\) es un subgrupo abeliano de \((A,+)\)
+que es estable bajo la multiplicación por elementos de \(A\)
+\end{defi}
+Es decir, un ideal \(I\) es un subconjunto no vacío de \(A\) 
+que sarisface
+\[
+x-y\in I\quad\text{y}\quad a I\subset I, \text{ para todo } x,y\in I, a \in A
+\]
+La primera condición (junto con el hecho de que \(I\neq \varnothing\))
+expresa el hecho de que \(I\) es un subgrupo de \(A\) respecto a la suma,
+y la segunda que 
+\[
+ax \in I \text{ para todo } a\in A \text{ y todo } x\in I.
+\]
+El ideal cero \(\{0\}\) se denota por \(0\)
+y apelaremos al contexto cuando sea necesario
+distinguir entre el elemento \(0\) del ideal cero.
+Es simplemente un ahorro de notación.
+
+Ideal generado por un conjunto.
+Nótese que 
+\[
+(\varnothing) = 0\quad \text{y}\quad (1) = A.
+\]
+Ejemplo.
+Sea \(I = (a,b)\) es un ideal en un anillo \(A\).
+Entonces \[I^2 = II = (a,b)(a,b)= (a^2, ab, b^2)\]
+\[
+I^n = ? 
+\]
+Si \(I = (a,b)\) y \(J=(c,d)\),
+\[
+IJ = (ac,ad,bc,bd).
+\]
+Generalizalo para cuando \(I\) y \(J\) 
+tienen una cantidad finita de generadores.
+
+En general, definimos la potencia de un ideal \(I\) como sigue:
+\[
+I^0 = 0,\quad I^1 = I, \quad I^n = I^{n-1}I.
+\]
+
+Poner ejemplo con las matrices triangulares.
+
+\subsection{Operaciones con ideales}
+
+\paragraph{Suma.}%
+Sean \(I\) y \(J\) dos ideales en un anillo \(A\).
+La suma 
+\[
+I+J = \left(I\cup J\right)= \{x+y \mid x\in I, y\in J\}
+\]
+es también un ideal de \(A\).
+
+\paragraph{Producto.}%
+\[
+IJ = \left(xy\mid x\in I, y\in J\right)
+\]
+
+
+Será útil recordar la cadena de inclusiones
+\[
+IJ\ \subset\ I\cap J\ \subset\ I\ \subset\ I+J.
+\]
+
+\subsection{Tipos de ideales}
+
+Siempre que tengamos un ideal primo,
+debemos pensar en la caracterización con el cociente.
+\[
+	\mathfrak{p}\text{ es primo } \iff A/\mathfrak{p} \text{ es un campo}
+\]
+y lo mismo para todo ideal maximal \(\mathfrak{m}\).
+
+
+Anillos local
+
+
+\begin{ej}
+\begin{enumerate}[label=(i)]
+	\item considera
+\end{enumerate}
+\end{ej}
+Anillo noetheriano
+
+El siguiente resultado es muy importante,
+pues muchos resultados apoyan su demostración en él.
+
+\begin{thm}[El lema de Nakayama]
+Sea \((A,m)\) un anillo local.
+Sea \(M\) un \(A\)-módulo finitamente generado.
+Si \(M=mM\), entonces \(M=0\).
+\end{thm}
+
+\section{Teoría de módulos}
+
+\begin{defi}
+Sea 
+Un módulo es un grupo abeliano \((M,+)\) dotado de una operación externa
+\(\cdot: 	\)
+\end{defi}
+
+Esta definición es exactamente la misma que la de \(K\)-espacio vectorial,
+excepto que \(K\) es un anillo cualquiera en lugar de un campo.
+Por eso, no es un abuso llamar a la teoría de módulos 
+``álgebra lineal sobre anillos''.
+Sin embargo, 
+las consecuencias que tiene permitir a \(K\) ser cualquier anillo
+son enormes.
+La principal que debemos tener en cuenta es que 
+los módulos no tienen que tener una base, mientras
+que todo espacio vectorial tiene una.
+Esta es la principal distinción.
+Este es el hecho que hace a los espacios vectoriales tan agradables.
+Por eso, a veces usamos algún método
+para pasar de la teoría de módulos a la de
+espacios vectoriales, como puede ser 
+formar el cociente \(A/m\) para obtener un campo
+y así nuestros \(A/m\)-módulos son espacios vectoriales.
+
+\begin{defi}
+Módulo generado por un conjunto
+\end{defi}
+
+\begin{defi}
+modulo f.g.
+\end{defi}
+
+\begin{ej}
+\begin{enumerate}[label=(i)]
+	\item considera
+\end{enumerate}
+\end{ej}
+
+\section{Secuencias exactas}
+
+Por qué son importantes?
+\[
+0\to L \to M\to N\to 0
+\]
+
+\subsection{Problemas resueltos}
+
+\begin{problema}
+Demuestra el tercer teorema de isomorfismo usando el lema de la serpiente.
+\end{problema}
+
+\begin{problema}
+Da una prueba corta del teorema de intersección de Krull usando el
+lemma de ... 
+\end{problema}
+\end{document}
